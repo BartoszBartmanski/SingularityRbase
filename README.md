@@ -1,5 +1,5 @@
 
-# r-base singularity images
+# SingularityRbase
 
 Repository for [r-base](https://www.r-project.org/)
 singularity images based on Ubuntu 20.04. 
