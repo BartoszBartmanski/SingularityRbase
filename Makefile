@@ -1,19 +1,15 @@
 
-IMAGES := $(patsubst %.def,%.sif,$(wildcard */image.def))
 
-all: ${IMAGES}
+all: r-base_latest.sif
 
-%.sif: %.def
-	cd $(dir $@) && sudo singularity build $(notdir $@) $(notdir $^)
+r-base_%.sif: r-base.def
+	sudo singularity build $@ $^
 	singularity sign $@
 
 .PHONY: push_%
 push_%:
-	singularity push $*/image.sif library://bartosz_bartmanski/default/r-base:$*
-
-.git/hooks/pre-push:
-	ln -s ../../.pre-push $@
+	singularity push r-base_$*.sif library://bartosz_bartmanski/default/r-base:$*
 
 clean:
-	rm -rf */*.sif
+	rm -rf *.sif
 
