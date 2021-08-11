@@ -8,7 +8,7 @@ r-base_%.sif: r-base.def
 
 .PHONY: push_%
 push_%: r-base_%.sif
-	singularity push r-base_$*.sif library://bartosz_bartmanski/default/r-base:$*
+	singularity push $^ library://bartosz_bartmanski/default/r-base:$*
 
 .git/hooks/pre-push:
 	ln -s ../../.pre-push $@
