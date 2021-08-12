@@ -13,7 +13,7 @@ sudo singularity build r-base_latest.sif r-base.def
 
 ## Download
 
-To download an image from sylabs library:
+To download an image from [sylabs library](https://cloud.sylabs.io/library/bartosz_bartmanski/default/r-base#):
 ```
 singularity pull library://bartosz_bartmanski/default/r-base:<version>
 ```
